@@ -5,42 +5,43 @@
     android:background="@color/primaryColor">
 
     <ImageButton
-        android:paddingTop="35dp"
+        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/home"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher"/>
+        android:background="@drawable/home_selector"
+        />
 
     <ImageButton
-        android:paddingTop="35dp"
+        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/map"
         android:layout_below="@+id/home"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher"
+        android:background="@drawable/map_selector"
          />
 
     <ImageButton
-        android:paddingTop="35dp"
+        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/chat"
         android:layout_below="@+id/map"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher"
+        android:background="@drawable/ic_launcher"
         />
 
     <ImageButton
-        android:paddingTop="35dp"
+        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/share"
         android:layout_below="@+id/chat"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher"
+        android:background="@drawable/ic_launcher"
         />
 
 </RelativeLayout>

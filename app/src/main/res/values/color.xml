@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-        <color name="backgroundColor">#C3D898</color>
-        <color name="primaryColor">#1C3144</color>
+        <color name="backgroundColor">#D2D7D3</color>
+        <color name="primaryColor">#22313F</color>
         <color name="primaryColorDark">#70161E</color>
+        <color name="infectedBar">#CF000F</color>
         <color name="colorAccent">#7EA16B</color>
 
 </resources>

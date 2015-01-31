@@ -4,9 +4,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class Home extends ActionBarActivity {
+
+    int counter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +19,33 @@ public class Home extends ActionBarActivity {
 
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+
+       /* Thread t = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+
+                    while (!isInterrupted()) {
+
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                counter++;
+                                String counterString = String.valueOf(counter);
+                                updateTextView(counterString);
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t.start();
+        */
+
 
     }
 
@@ -39,5 +70,13 @@ public class Home extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void updateTextView(String toThis) {
+
+        TextView textView = (TextView) findViewById(R.id.infectedcount);
+        textView.setText(toThis);
+
+        return;
     }
 }
