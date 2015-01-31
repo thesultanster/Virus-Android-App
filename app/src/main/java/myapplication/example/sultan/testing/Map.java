@@ -1,10 +1,14 @@
 package myapplication.example.sultan.testing;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +16,8 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
+import java.util.regex.Pattern;
 
 
 public class Map extends ActionBarActivity {
@@ -32,8 +38,12 @@ public class Map extends ActionBarActivity {
         String address = info.getMacAddress();
 
 
-        myFirebaseRef.child("MAC").setValue(info);
-        myFirebaseRef.child("message1").setValue("Do you have data? You'll love Firebase1.");
+
+       String android_id = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+
+        myFirebaseRef.child(android_id).setValue(info);
+        //myFirebaseRef.child("message1").setValue("Do you have data? You'll love Firebase1.");
 
         myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,4 +76,6 @@ public class Map extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
