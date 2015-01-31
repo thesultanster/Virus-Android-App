@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-        <color name="backgroundColor">#D2D7D3</color>
-        <color name="primaryColor">#22313F</color>
+        <color name="backgroundColor">#141301</color>
+        <color name="primaryColor">#1E020F</color>
         <color name="primaryColorDark">#70161E</color>
-        <color name="infectedBar">#CF000F</color>
+        <color name="infectedBar">#70161E</color>
         <color name="colorAccent">#7EA16B</color>
+        <color name="safeuser">#2F3233</color>
+        <color name="numsafe">#2F3233</color>
+        <color name="zombie">#FF6600</color>
+        <color name="human">#00FF00</color>
+
 
 </resources>

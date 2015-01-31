@@ -32,14 +32,6 @@
             android:name=".Map"
             android:label="@string/title_activity_map" >
         </activity>
-        <activity
-            android:name=".Chat"
-            android:label="@string/title_activity_chat" >
-        </activity>
-        <activity
-            android:name=".Share"
-            android:label="@string/title_activity_share" >
-        </activity>
     </application>
 
 </manifest>

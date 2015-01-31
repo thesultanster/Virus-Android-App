@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -31,27 +32,33 @@ public class Map extends ActionBarActivity {
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
 
         Firebase.setAndroidContext(this);
-        Firebase myFirebaseRef = new Firebase("https://crackling-torch-2249.firebaseio.com/active-list");
 
-        WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        String address = info.getMacAddress();
+        RegisterDevice();
+        SetListeners();
 
+         Thread t = new Thread() {
 
-
-       String android_id = Settings.Secure.getString(this.getContentResolver(),
-                Settings.Secure.ANDROID_ID);
-
-        myFirebaseRef.child(android_id).setValue(info);
-        //myFirebaseRef.child("message1").setValue("Do you have data? You'll love Firebase1.");
-
-        myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+            public void run() {
+                try {
+
+                    while (!isInterrupted()) {
+
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                SetListeners();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
             }
-            @Override public void onCancelled(FirebaseError error) { }
-        });
+        };
+
+        t.start();
+
     }
 
 
@@ -77,5 +84,62 @@ public class Map extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void RegisterDevice()
+    {
+        // Connect to registration list
+        Firebase sendData = new Firebase("https://crackling-torch-2249.firebaseio.com/active-list");
+
+        // Get Unique device ID
+        String android_id = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+
+        // Send data to database, register device
+        sendData.child(android_id).setValue("Healthy");
+
+        return;
+    }
+
+    public void SetListeners()
+    {
+        // Connect to statistics
+        Firebase stats = new Firebase("https://crackling-torch-2249.firebaseio.com/statistics");
+
+        stats.child("zone_infected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView)findViewById(R.id.zone_infected);
+                tv1.setText(snapshot.getValue().toString());
+
+            }
+            @Override public void onCancelled(FirebaseError error) { }
+        });
+
+        stats.child("zone_safe").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView)findViewById(R.id.zone_safe);
+                tv1.setText(snapshot.getValue().toString());
+            }
+            @Override public void onCancelled(FirebaseError error) { }
+        });
+
+        stats.child("zone_title").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView)findViewById(R.id.zone_title);
+                tv1.setText(snapshot.getValue().toString());
+            }
+            @Override public void onCancelled(FirebaseError error) { }
+        });
+
+        stats.child("zone_secondary").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView)findViewById(R.id.zone_secondary);
+                tv1.setText(snapshot.getValue().toString());
+            }
+            @Override public void onCancelled(FirebaseError error) { }
+        });
+    }
 
 }

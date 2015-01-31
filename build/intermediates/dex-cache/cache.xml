@@ -37,18 +37,18 @@
         <dex dex="C:\Users\Sultan\AndroidStudioProjects\testing\app\build\intermediates\pre-dexed\debug\tubesock-0.0.11-b3e4fdbb7408652400e4d44679855fc39f54adf5.jar" />
     </item>
     <item
-        jar="C:\Users\Sultan\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
-        <dex dex="C:\Users\Sultan\AndroidStudioProjects\testing\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.2-16e85b1dbbbd05ec0a65e8f65a623959110d5dad.jar" />
-    </item>
-    <item
         jar="C:\Users\Sultan\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
         <dex dex="C:\Users\Sultan\AndroidStudioProjects\testing\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.2-b81db8b9004bf01cfbd02a891fa629703d6578c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sultan\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="C:\Users\Sultan\AndroidStudioProjects\testing\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.2-16e85b1dbbbd05ec0a65e8f65a623959110d5dad.jar" />
     </item>
     <item
         jar="C:\Users\Sultan\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.1.2\4de410cd611e4b56deb4c203cd0b8fcb80a5759\firebase-client-android-2.1.2.jar"

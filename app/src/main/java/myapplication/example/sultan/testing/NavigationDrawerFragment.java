@@ -64,9 +64,6 @@ public class NavigationDrawerFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         home = (ImageButton) v.findViewById(R.id.home);
-        map = (ImageButton)  v.findViewById(R.id.map);
-        chat = (ImageButton)  v.findViewById(R.id.chat);
-        share = (ImageButton)  v.findViewById(R.id.share);
 
         //home.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
 
@@ -81,38 +78,6 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        map.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent
-                        (getActivity(), Map.class);
-                startActivity(intent);
-            }
-        });
-
-        chat.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent
-                        (getActivity(), Chat.class);
-                startActivity(intent);
-            }
-        });
-
-        share.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent
-                        (getActivity(), Share.class);
-                startActivity(intent);
-            }
-        });
 
         return v;
     }

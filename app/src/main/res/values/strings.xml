@@ -13,6 +13,7 @@
     <string name="title_activity_chat">Chat</string>
     <string name="title_activity_share">Share</string>
     <string name="number_infected">0</string>
+    <string name="number_safe">0</string>
     <string name="infected">Infected</string>
 
 </resources>

@@ -1,9 +1,11 @@
 package myapplication.example.sultan.testing;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -17,36 +19,15 @@ public class Home extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
 
-       /* Thread t = new Thread() {
-
+        TextView playTextView = (TextView)this.findViewById(R.id.playbutton);
+        playTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                try {
-
-                    while (!isInterrupted()) {
-
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                counter++;
-                                String counterString = String.valueOf(counter);
-                                updateTextView(counterString);
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent( getApplicationContext() , Map.class);
+                startActivity(intent);
             }
-        };
-
-        t.start();
-        */
-
-
+        });
     }
 
 
@@ -72,11 +53,4 @@ public class Home extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void updateTextView(String toThis) {
-
-        TextView textView = (TextView) findViewById(R.id.infectedcount);
-        textView.setText(toThis);
-
-        return;
-    }
 }
