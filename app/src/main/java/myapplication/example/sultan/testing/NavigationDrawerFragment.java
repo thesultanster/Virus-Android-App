@@ -2,7 +2,9 @@ package myapplication.example.sultan.testing;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 
 /**
@@ -25,6 +28,11 @@ public class NavigationDrawerFragment extends Fragment {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View containerView;
+
+    ImageButton home;
+    ImageButton map;
+    ImageButton chat;
+    ImageButton share;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,8 +60,61 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        home = (ImageButton) v.findViewById(R.id.home);
+        map = (ImageButton)  v.findViewById(R.id.map);
+        chat = (ImageButton)  v.findViewById(R.id.chat);
+        share = (ImageButton)  v.findViewById(R.id.share);
+
+        //home.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
+
+        home.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Home.class);
+                startActivity(intent);
+            }
+        });
+
+        map.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Map.class);
+                startActivity(intent);
+            }
+        });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Chat.class);
+                startActivity(intent);
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Share.class);
+                startActivity(intent);
+            }
+        });
+
+        return v;
     }
 
     public void setUp( int fragmentId, DrawerLayout drawerLayout, Toolbar toolbar)

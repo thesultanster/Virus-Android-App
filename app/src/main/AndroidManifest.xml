@@ -20,6 +20,22 @@
             android:name=".SubActivity"
             android:label="@string/title_activity_sub" >
         </activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".Map"
+            android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name=".Chat"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <activity
+            android:name=".Share"
+            android:label="@string/title_activity_share" >
+        </activity>
     </application>
 
 </manifest>
