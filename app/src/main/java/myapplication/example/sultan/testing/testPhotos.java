@@ -65,8 +65,7 @@ public class testPhotos extends ActionBarActivity {
     protected void onStart() {
         super.onStart();
 
-        View view = findViewById(R.id.testcircle);
-        ImageView imageview = (ImageView) view;
+
         Resources res = getResources();
 
         String address;
@@ -112,6 +111,7 @@ public class testPhotos extends ActionBarActivity {
         canvas.drawCircle(Float.valueOf(String.valueOf(myX*6.34)), Float.valueOf(String.valueOf((myY*6.35))), 35, paint);
 
         System.out.println(Float.valueOf(String.valueOf(myX*6.34)));
+        System.out.println(myX);
 
         ImageView imageView = (ImageView)findViewById(R.id.testcircle);
         imageView.setAdjustViewBounds(true);
