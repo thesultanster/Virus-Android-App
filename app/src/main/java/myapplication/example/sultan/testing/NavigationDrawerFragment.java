@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.firebase.client.Firebase;
 
 
 /**
@@ -30,8 +33,8 @@ public class NavigationDrawerFragment extends Fragment {
     private View containerView;
 
     ImageButton home;
-    ImageButton map;
-    ImageButton chat;
+    ImageButton exit;
+    ImageButton temp;
     ImageButton share;
 
     @Override
@@ -64,6 +67,9 @@ public class NavigationDrawerFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         home = (ImageButton) v.findViewById(R.id.home);
+        exit = (ImageButton) v.findViewById(R.id.exit);
+        temp = (ImageButton) v.findViewById(R.id.temp);
+
 
         //home.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
 
@@ -77,6 +83,31 @@ public class NavigationDrawerFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), testPhotos.class);
+
+                startActivity(intent);
+            }
+        });
+
+
+        temp.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Home.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         return v;

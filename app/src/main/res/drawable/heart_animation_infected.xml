@@ -5,9 +5,9 @@
 
     <item
         android:drawable="@drawable/greenheart"
-        android:duration="300"/>
+        android:duration="200"/>
     <item
         android:drawable="@drawable/heart"
-        android:duration="300"/>
+        android:duration="200"/>
 
 </animation-list>

@@ -25,6 +25,17 @@
         android:background="@drawable/exit"
         />
 
+    <ImageButton
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/exit"
+        />
+
 
 
 

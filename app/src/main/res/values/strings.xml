@@ -15,5 +15,6 @@
     <string name="number_infected">0</string>
     <string name="number_safe">0</string>
     <string name="infected">Infected</string>
+    <string name="title_activity_test_photos">testPhotos</string>
 
 </resources>
