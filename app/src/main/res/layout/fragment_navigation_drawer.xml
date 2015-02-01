@@ -22,7 +22,7 @@
         android:id="@+id/profile"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
-        android:background="@drawable/setting"
+        android:background="@drawable/ic_profile"
         />
 
     <ImageButton
