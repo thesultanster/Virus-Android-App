@@ -1,17 +1,25 @@
 package myapplication.example.sultan.testing;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.io.File;
 
@@ -50,6 +58,9 @@ public class testPhotos extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    float myX;
+    float myY;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -58,7 +69,37 @@ public class testPhotos extends ActionBarActivity {
         ImageView imageview = (ImageView) view;
         Resources res = getResources();
 
+        String address;
 
+        WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        address = info.getMacAddress();
+
+        Firebase active = new Firebase("https://virus.firebaseio.com/Active_List/" + address);
+
+        // GET X
+        active.child("pos").child("x").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                myX = Float.valueOf(snapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError error) {
+            }
+        });
+
+        // GET Y
+        active.child("pos").child("y").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                myY = Float.valueOf(snapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError error) {
+            }
+        });
 
         Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.campus);
         bitmap = bitmap.copy(bitmap.getConfig(),true);
@@ -68,7 +109,9 @@ public class testPhotos extends ActionBarActivity {
 
         // create canvas to draw on the bitmap
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawCircle(500, 500, 35, paint);
+        canvas.drawCircle(Float.valueOf(String.valueOf(myX*6.34)), Float.valueOf(String.valueOf((myY*6.35))), 35, paint);
+
+        System.out.println(Float.valueOf(String.valueOf(myX*6.34)));
 
         ImageView imageView = (ImageView)findViewById(R.id.testcircle);
         imageView.setAdjustViewBounds(true);

@@ -50,6 +50,17 @@
                     android:textColor="@android:color/white"
                     android:textSize="35sp" />
 
+                <TextView
+                    android:id="@+id/points"
+                    android:gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="10"
+                    android:textColor="@android:color/white"
+                    android:textSize="35sp" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -97,23 +108,31 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/zone_title"
+                    android:id="@+id/campus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="60dp"
-                    android:text="Bourns Hall of Engineering"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
+
 
                 <TextView
-                    android:id="@+id/zone_secondary"
+                    android:id="@+id/building"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/zone_title"
+                    android:layout_below="@+id/campus"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="5dp"
-                    android:text="900 University Ave.\nRiverside, CA 92521\nTel: (951) 827-1012"
                     android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/floor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/building"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp" />
+
             </RelativeLayout>
         </RelativeLayout>
 

@@ -183,11 +183,12 @@ public class Map extends ActionBarActivity {
             public void onCancelled(FirebaseError error) {
             }
         });
-/*
-        stats.child("zone_title").addValueEventListener(new ValueEventListener() {
+
+        // CURRENT CAMPUS
+        stats.child("campus").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                TextView tv1 = (TextView) findViewById(R.id.zone_title);
+                TextView tv1 = (TextView) findViewById(R.id.campus);
                 tv1.setText(snapshot.getValue().toString());
             }
 
@@ -196,10 +197,11 @@ public class Map extends ActionBarActivity {
             }
         });
 
-        stats.child("zone_secondary").addValueEventListener(new ValueEventListener() {
+        //CURRENT BUILDING
+        stats.child("building").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                TextView tv1 = (TextView) findViewById(R.id.zone_secondary);
+                TextView tv1 = (TextView) findViewById(R.id.building);
                 tv1.setText(snapshot.getValue().toString());
             }
 
@@ -207,7 +209,19 @@ public class Map extends ActionBarActivity {
             public void onCancelled(FirebaseError error) {
             }
         });
-*/
+
+        // CURRENT FLOOR
+        stats.child("floor").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView) findViewById(R.id.floor);
+                tv1.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(FirebaseError error) {
+            }
+        });
+
         // TIMER
         norm.child("time").addValueEventListener(new ValueEventListener() {
             @Override
@@ -220,8 +234,22 @@ public class Map extends ActionBarActivity {
             public void onCancelled(FirebaseError error) {
             }
         });
-/*
-        stats.child("zombie_nearby").addValueEventListener(new ValueEventListener() {
+
+        /*
+        // TIMER
+        stats.child("points").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                TextView tv1 = (TextView) findViewById(R.id.countdown);
+                tv1.setText(snapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError error) {
+            }
+        });
+*/
+        stats.child("danger").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.getValue().toString() == "true")
@@ -235,7 +263,7 @@ public class Map extends ActionBarActivity {
             public void onCancelled(FirebaseError error) {
             }
         });
-        */
+
         Firebase active = new Firebase("https://virus.firebaseio.com/Active_List/" + address);
         active.child("status").addValueEventListener(new ValueEventListener() {
             @Override

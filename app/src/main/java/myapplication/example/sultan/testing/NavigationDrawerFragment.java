@@ -34,8 +34,8 @@ public class NavigationDrawerFragment extends Fragment {
 
     ImageButton home;
     ImageButton exit;
-    ImageButton temp;
-    ImageButton share;
+    ImageButton setting;
+    ImageButton profile;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,8 @@ public class NavigationDrawerFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         home = (ImageButton) v.findViewById(R.id.home);
         exit = (ImageButton) v.findViewById(R.id.exit);
-        temp = (ImageButton) v.findViewById(R.id.temp);
+        setting = (ImageButton) v.findViewById(R.id.setting);
+        profile = (ImageButton) v.findViewById(R.id.profile);
 
 
         //home.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
@@ -96,18 +97,29 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-
-        temp.setOnClickListener(new View.OnClickListener() {
+        setting.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 Intent intent = new Intent
                         (getActivity(), Home.class);
+
                 startActivity(intent);
             }
         });
 
+        profile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent
+                        (getActivity(), Home.class);
+
+                startActivity(intent);
+            }
+        });
 
 
         return v;
