@@ -62,8 +62,8 @@ public class testPhotos extends ActionBarActivity {
     float myY;
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
 
 
         Resources res = getResources();
@@ -73,8 +73,8 @@ public class testPhotos extends ActionBarActivity {
         WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();
         address = info.getMacAddress();
-
-        Firebase active = new Firebase("https://virus.firebaseio.com/Active_List/" + address);
+        System.out.println(address);
+        Firebase active = new Firebase("https://virus.firebaseio.com/Active_List/"+address);
 
         // GET X
         active.child("pos").child("x").addValueEventListener(new ValueEventListener() {
@@ -116,6 +116,13 @@ public class testPhotos extends ActionBarActivity {
         ImageView imageView = (ImageView)findViewById(R.id.testcircle);
         imageView.setAdjustViewBounds(true);
         imageView.setImageBitmap(bitmap);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
 
 
     }

@@ -56,6 +56,8 @@ public class Map extends ActionBarActivity {
         RegisterDevice();
         SetListeners();
 
+
+
         Thread listenerThread = new Thread() {
             @Override
             public void run() {
